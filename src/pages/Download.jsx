@@ -1,13 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Brain, Mic, Smile, Pointer,Scan } from "lucide-react";
 import {
   Download as DownloadIcon,
   Smartphone,
   Monitor,
   Laptop,
   ShieldCheck,
-  Cpu,
-  Smile,
+  Cpu
 } from "lucide-react";
 
 export default function Download() {
@@ -105,7 +105,7 @@ export default function Download() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-bold text-center mb-10"
         >
-          What's Inside the App?
+           What's Inside Moody?
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -118,6 +118,65 @@ export default function Download() {
           >
             <Smile className="w-12 h-12 text-purple-400 mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">Emotion Detection</h3>
+            <p className="text-gray-400">
+              Real-time facial emotion detection to control system actions
+        based on your mood.
+            </p>
+          </motion.div>
+
+          {/* Feature 2 */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl text-center hover:shadow-xl hover:shadow-blue-500/20 transition"
+          >
+            <Mic className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Speech Recognition</h3>
+            <p className="text-gray-400">
+               Give hands-free commands: scroll, click, open apps and more with 
+        lightning-fast ASR processing.
+            </p>
+          </motion.div>
+
+          {/* Feature 3 */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl text-center hover:shadow-xl hover:shadow-green-500/20 transition"
+          >
+            <Pointer className="w-12 h-12 text-green-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Hand Gesture Mouse Control</h3>
+            <p className="text-gray-400">
+              Control the cursor with MediaPipe Hands: pointing, clicking,
+        dragging, and scrolling using intuitive gestures.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+
+       {/* ===== FEATURES SECTION ===== */}
+      <section className="px-8 md:px-20 pb-20">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-4xl font-bold text-center mb-10"
+        >
+          What's Inside the App?
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Feature 1 */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl text-center hover:shadow-xl hover:shadow-purple-500/20 transition"
+          >
+            <Scan className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+            <h3 className="text-xl font-semibold mb-2">Accurate Detection</h3>
             <p className="text-gray-400">
               Detect happiness, sadness, anger, fear, surprise, and more using
               our trained CNN model.

@@ -1,6 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Hand, MousePointer, HandMetal, ScrollText, HandIcon } from "lucide-react";
+import { Hand, MousePointer, HandMetal, ScrollText, HandIcon,Pointer } from "lucide-react";
+import index from "/images/index.png";
+import palm from "/images/palm.png";
+import shape from "/images/shape.png";
+import rock from "/images/rock.png";
+import three from "/images/three.png";
 
 export default function Gestures() {
   return (
@@ -40,29 +45,7 @@ export default function Gestures() {
         <span className="text-green-400 font-semibold"> PyAutoGUI</span>.
       </motion.p>
 
-      {/* ===== SECTION: RECOGNITION DESCRIPTION ===== */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        className="mt-20 bg-neutral-900 border border-neutral-800 rounded-2xl p-10 shadow-xl"
-      >
-        <h2 className="text-3xl font-bold mb-4 text-purple-400">Hand Gesture Recognition</h2>
-        <p className="text-gray-300 leading-relaxed">
-          Modern computer vision enables smooth and touch-free interaction using hand gestures.
-          Using the webcam feed, the system detects hand landmarks and interprets their
-          positioning to generate real-time commands.
-          <br /><br />
-          With <span className="font-semibold text-blue-400">MediaPipe Hands</span>,
-          21 key points of each hand are tracked in 3D coordinates. Combined with
-          <span className="text-blue-400"> OpenCV preprocessing</span> and
-          <span className="text-green-400"> deep-learning filters</span>, the system stays
-          stable under variations in lighting, background, and hand angles.
-          <br /><br />
-          These techniques allow Moody to perform real-time gesture tracking even on
-          resource-limited hardware with excellent accuracy.
-        </p>
-      </motion.div>
+      
 
       {/* ===== SECTION: GESTURE CARDS ===== */}
       <motion.h2
@@ -76,31 +59,32 @@ export default function Gestures() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
         <GestureCard
-          icon={<Hand className="w-14 h-14 text-blue-400" />}
+          icon={<img src={palm} alt="Open Palm Gesture" className="w-20 h-20 object-contain" />}
+
           title="Open Palm"
           desc="Toggle virtual mouse on or off for gesture-based control."
         />
 
         <GestureCard
-          icon={<MousePointer className="w-14 h-14 text-purple-400" />}
+           icon={<img src={index} alt="Pointing" className="w-20 h-20 object-contain" />}
           title="Index Finger Pointing"
           desc="Controls mouse cursor movement smoothly and accurately."
         />
 
         <GestureCard
-          icon={<HandIcon className="w-14 h-14 text-green-400" />}
+          icon={<img src={shape} alt="L Shape" className="w-20 h-20 object-contain" />}
           title="Thumb–Index L Shape"
           desc="Short hold = Left Click. Long Hold = Click & Drag."
         />
 
         <GestureCard
-          icon={<HandMetal className="w-14 h-14 text-orange-400" />}
+          icon={<img src={rock} alt="Rock Sign" className="w-20 h-20 object-contain" />}
           title="Rock Sign"
           desc="Triggers a Right Click action."
         />
 
         <GestureCard
-          icon={<ScrollText className="w-14 h-14 text-yellow-400" />}
+           icon={<img src={three} alt="Three Fingers" className="w-25 h-25 object-contain" />}
           title="Three Fingers Extended"
           desc="Enables vertical scrolling using hand movement."
         />
@@ -144,3 +128,28 @@ function GestureCard({ icon, title, desc }) {
     </motion.div>
   );
 }
+
+export function LGestureIcon({ size = 40, color = "#9b5cff" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      fill="none"
+      stroke={color}
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      {/* Thumb */}
+      <line x1="30" y1="60" x2="10" y2="60" />
+
+      {/* Index Finger */}
+      <line x1="30" y1="60" x2="30" y2="20" />
+
+      {/* Palm */}
+      <rect x="30" y="60" width="40" height="25" rx="10" />
+    </svg>
+  );
+}
+

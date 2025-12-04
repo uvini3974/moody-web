@@ -1,5 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Mic, AudioWaveform, ScanSearch, Zap } from "lucide-react";
+
+
 
 export default function Speech() {
   return (
@@ -25,7 +28,7 @@ export default function Speech() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-neutral-400 max-w-2xl mt-5 mx-auto text-lg"
         >
-          Control your computer using your voice. Speak naturally — the AI
+          Control your computer using your voice. Speak naturally and the AI
           translates your commands instantly.
         </motion.p>
       </section>
@@ -34,60 +37,66 @@ export default function Speech() {
       <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 pb-24">
         
         {/* Step 1 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="p-8 rounded-2xl backdrop-blur bg-white/5 border border-white/10"
-        >
-          <h2 className="text-2xl font-semibold">1. Microphone Capture</h2>
-          <p className="text-neutral-400 mt-3">
-            The desktop app listens using your microphone and converts raw audio
-            into clean waveforms using noise reduction and audio preprocessing.
-          </p>
-        </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="p-8 rounded-2xl backdrop-blur bg-white/5 border border-white/10"
+>
+  <Mic className="w-12 h-12 text-blue-400 mb-4" />
+  <h2 className="text-2xl font-semibold">1. Microphone Capture</h2>
+  <p className="text-neutral-400 mt-3">
+    The desktop app listens using your microphone and converts raw audio
+    into clean waveforms using noise reduction and audio preprocessing.
+  </p>
+</motion.div>
 
-        {/* Step 2 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="p-8 rounded-2xl backdrop-blur bg-white/5 border border-white/10"
-        >
-          <h2 className="text-2xl font-semibold">2. Speech-to-Text Model</h2>
-          <p className="text-neutral-400 mt-3">
-            Your voice is processed using a lightweight ASR (Automatic Speech
-            Recognition) model optimized for on-device performance.
-          </p>
-        </motion.div>
+{/* Step 2 */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.1, duration: 0.6 }}
+  className="p-8 rounded-2xl backdrop-blur bg-white/5 border border-white/10"
+>
+  <AudioWaveform className="w-12 h-12 text-purple-400 mb-4" />
+  <h2 className="text-2xl font-semibold">2. Speech-to-Text Model</h2>
+  <p className="text-neutral-400 mt-3">
+    Your voice is processed using a lightweight ASR (Automatic Speech Recognition)
+    model optimized for on-device performance.
+  </p>
+</motion.div>
 
-        {/* Step 3 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="p-8 rounded-2xl backdrop-blur bg-white/5 border border-white/10"
-        >
-          <h2 className="text-2xl font-semibold">3. Command Extraction</h2>
-          <p className="text-neutral-400 mt-3">
-            The AI detects key command phrases like “open browser,” “play
-            music,” “mute,” “scroll down,” and more.
-          </p>
-        </motion.div>
+{/* Step 3 */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2, duration: 0.6 }}
+  className="p-8 rounded-2xl backdrop-blur bg-white/5 border border-white/10"
+>
+  <ScanSearch className="w-12 h-12 text-pink-400 mb-4" />
+  <h2 className="text-2xl font-semibold">3. Command Extraction</h2>
+  <p className="text-neutral-400 mt-3">
+    The AI detects key commands like “open browser,” “play music,” “mute,”
+    “scroll down,” and more.
+  </p>
+</motion.div>
 
-        {/* Step 4 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="p-8 rounded-2xl backdrop-blur bg-white/5 border border-white/10"
-        >
-          <h2 className="text-2xl font-semibold">4. Execute Action</h2>
-          <p className="text-neutral-400 mt-3">
-            Interpreted commands are sent to the system controller, performing
-            actions instantly with near-zero latency.
-          </p>
-        </motion.div>
+{/* Step 4 */}
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.3, duration: 0.6 }}
+  className="p-8 rounded-2xl backdrop-blur bg-white/5 border border-white/10"
+>
+  <Zap className="w-12 h-12 text-green-400 mb-4" />
+  <h2 className="text-2xl font-semibold">4. Execute Action</h2>
+  <p className="text-neutral-400 mt-3">
+    Interpreted commands are sent to the system controller, performing
+    actions instantly with near-zero latency.
+  </p>
+</motion.div>
+
+
 
       </section>
 
@@ -106,7 +115,7 @@ export default function Speech() {
           {[
             {
               title: "Use a Clear Voice",
-              desc: "Speak naturally — you don't need to shout. The model is trained to pick up normal speech."
+              desc: "Speak naturally and you don't need to shout. The model is trained to pick up normal speech."
             },
             {
               title: "Quiet Environment",

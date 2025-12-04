@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
-import { Camera, Cpu, Workflow, Smile } from "lucide-react";
+import { Camera, Cpu, Workflow, Smile,User} from "lucide-react";
+
+
 
 export default function Emotion() {
   return (
@@ -36,7 +38,7 @@ export default function Emotion() {
           className="text-neutral-400 max-w-2xl mt-5 mx-auto text-lg"
         >
           Powered by deep learning, computer vision, and real-time image
-          processing — Moody recognizes your facial expressions instantly and
+          processing  Moody recognizes your facial expressions instantly and
           locally on your device.
         </motion.p>
       </section>
@@ -45,13 +47,18 @@ export default function Emotion() {
           ARCHITECTURE SECTION (Inspired by your diagram)
       ===================================================== */}
       <section className="max-w-6xl mx-auto px-6 py-20">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-3xl font-bold text-center mb-16"
-        >
-          System Architecture
-        </motion.h2>
+        <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="flex justify-center mb-12"
+>
+  <img
+    src="/images/face.jpg"
+    alt="Face Detection AI"
+    className="rounded-2xl shadow-lg w-[500px] border border-neutral-800"
+  />
+</motion.div>
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
             
@@ -129,9 +136,9 @@ export default function Emotion() {
           title="2. Emotion Classification"
           description="Once your face is detected, our neural network predicts your emotional state using 7 universal facial expression categories."
           points={[
-            "😊 Happy • 😡 Angry • 😢 Sad",
-            "😮 Surprise • 😐 Neutral",
-            "😖 Disgust • 😱 Fear",
+            "😊 Happy     • 😡 Angry  • 😢 Sad",
+            "😮 Surprise  • 😐 Neutral",
+            "😖 Disgust   • 😱 Fear",
           ]}
           delay={0.1}
         />
@@ -147,13 +154,39 @@ export default function Emotion() {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="w-full max-w-3xl h-72 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-center"
-          >
-            <p className="text-neutral-500">Webcam feed will appear here in the app</p>
-          </motion.div>
-        </div>
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    className="relative w-full max-w-3xl h-72 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-center overflow-hidden"
+  >
+    {/* Webcam Icon (Top Left) */}
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="absolute top-4 left-4 flex items-center gap-2"
+    >
+      <Camera className="w-6 h-6 text-blue-400" />
+      <span className="text-sm text-neutral-400">Webcam Active</span>
+    </motion.div>
+
+    {/* Face Icon (Inside the focus box) */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.4 }}
+      className="absolute w-32 h-44 rounded-2xl border border-purple-500/60 flex flex-col items-center justify-center shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+    >
+      <User className="w-10 h-10 text-purple-300 mb-2" />
+      <span className="text-neutral-400 text-sm">Align Your Face</span>
+    </motion.div>
+
+    {/* Center Text */}
+    <p className="text-neutral-500 text-center">
+     
+    </p>
+  </motion.div>
+</div>
+
       </section>
 
       {/* =====================================================
