@@ -21,7 +21,7 @@ export default function Download() {
           transition={{ duration: 0.6 }}
           className="text-5xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text"
         >
-          Download Moody
+          Download JARVIS
         </motion.h1>
 
         <motion.p
@@ -50,7 +50,7 @@ export default function Download() {
           <h2 className="text-3xl font-bold mb-3">Desktop Application</h2>
 
           <p className="text-gray-400 mb-8 text-base leading-relaxed">
-            Install Moody on Windows and enjoy precise real-time emotion
+            Install JARVIS on Windows and enjoy precise real-time emotion
             detection using your webcam and microphone.
           </p>
 
@@ -76,7 +76,7 @@ export default function Download() {
           <h2 className="text-3xl font-bold mb-3">Mobile Application</h2>
 
           <p className="text-gray-400 mb-8 text-base leading-relaxed">
-            Use Moody anywhere on your smartphone. Fast, lightweight and
+            Use JARVIS anywhere on your smartphone. Fast, lightweight and
             perfect for students, researchers, and daily mood tracking.
           </p>
 
@@ -105,7 +105,7 @@ export default function Download() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-bold text-center mb-10"
         >
-           What's Inside Moody?
+           What's Inside JARVIS?
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

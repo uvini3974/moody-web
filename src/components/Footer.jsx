@@ -12,7 +12,7 @@ export default function Footer() {
 
         {/* Brand */}
         <h2 className="text-2xl font-semibold text-white">
-          MOODY
+          JARVIS
         </h2>
         <p className="text-neutral-500 mt-1">
           AI Multimodal Emotion & Speech Control System
@@ -30,7 +30,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-neutral-600 text-sm mt-8">
-          © 2025 Moody — All Rights Reserved
+          © 2025 JARVIS — All Rights Reserved
         </p>
       </div>
     </footer>

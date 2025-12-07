@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthCard from "./auth/AuthCard";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Signup() {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -32,10 +34,10 @@ export default function Signup() {
         return;
       }
 
-      // Save token
-      localStorage.setItem("moody_token", data.token);
+      // Save user + token using login method
+      login(data.user, data.token);
 
-      // Redirect
+      // Redirect to home
       navigate("/");
     } catch (err) {
       setError("Network error");
@@ -45,7 +47,7 @@ export default function Signup() {
   }
 
   return (
-    <AuthCard title="Create Account" subtitle="Join Moody in seconds">
+    <AuthCard title="Create Account" subtitle="Join JARVIS in seconds">
       <form className="flex flex-col gap-5" onSubmit={handleSignup}>
 
         {error && (

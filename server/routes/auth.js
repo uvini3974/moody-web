@@ -69,4 +69,67 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
+// Update user profile
+router.put("/profile", auth, async (req, res) => {
+  try {
+    const { name, email } = req.body;
+    
+    // Check if email is already taken by another user
+    if (email) {
+      const existing = await User.findOne({ email, _id: { $ne: req.userId } });
+      if (existing) return res.status(409).json({ message: "Email already in use." });
+    }
+
+    const updateData = {};
+    if (name !== undefined) updateData.name = name;
+    if (email) updateData.email = email;
+
+    const user = await User.findByIdAndUpdate(
+      req.userId,
+      updateData,
+      { new: true }
+    ).select("-passwordHash");
+
+    if (!user) return res.status(404).json({ message: "User not found." });
+
+    res.json({
+      user: { id: user._id, name: user.name, email: user.email },
+      message: "Profile updated successfully"
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// Update password
+router.put("/password", auth, async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({ message: "Both current and new password are required." });
+    }
+
+    const user = await User.findById(req.userId);
+    if (!user) return res.status(404).json({ message: "User not found." });
+
+    // Verify current password
+    const isValid = await bcrypt.compare(currentPassword, user.passwordHash);
+    if (!isValid) {
+      return res.status(401).json({ message: "Current password is incorrect." });
+    }
+
+    // Hash and update new password
+    const newPasswordHash = await bcrypt.hash(newPassword, SALT_ROUNDS);
+    user.passwordHash = newPasswordHash;
+    await user.save();
+
+    res.json({ message: "Password updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 module.exports = router;

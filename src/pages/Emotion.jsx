@@ -38,7 +38,7 @@ export default function Emotion() {
           className="text-neutral-400 max-w-2xl mt-5 mx-auto text-lg"
         >
           Powered by deep learning, computer vision, and real-time image
-          processing  Moody recognizes your facial expressions instantly and
+          processing  JARVIS recognizes your facial expressions instantly and
           locally on your device.
         </motion.p>
       </section>
@@ -150,7 +150,7 @@ export default function Emotion() {
       <section className="bg-gradient-to-b from-neutral-900 to-neutral-950 py-20 px-6 text-center">
         <h2 className="text-3xl font-bold">Live Webcam Preview</h2>
         <p className="text-neutral-400 mt-2 max-w-xl mx-auto">
-          Stand in front of your webcam and let Moody detect your emotions in real-time.
+          Stand in front of your webcam and let JARVIS detect your emotions in real-time.
         </p>
 
         <div className="mt-10 flex justify-center">

@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { setUser } = useContext(AuthContext); // ✔ needed for authentication
+  const { login } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -33,12 +33,10 @@ export default function Login() {
         return;
       }
 
-      // ✔ Save user + token
-      setUser(data.user); 
-      localStorage.setItem("moody_user", JSON.stringify(data.user));
-      localStorage.setItem("moody_token", data.token);
+      // Save user + token using login method
+      login(data.user, data.token);
 
-      // ✔ Redirect to home
+      // Redirect to home
       navigate("/");
     } catch (err) {
       setError("Network error");
@@ -48,7 +46,7 @@ export default function Login() {
   }
 
   return (
-    <AuthCard title="Welcome Back" subtitle="Login to continue using Moody">
+    <AuthCard title="Welcome Back" subtitle="Login to continue using JARVIS">
       <form className="flex flex-col gap-5" onSubmit={handleLogin}>
 
         {error && (

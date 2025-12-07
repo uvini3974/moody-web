@@ -28,7 +28,7 @@ export default function Home() {
           transition={{ duration: 0.7 }}
           className="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text drop-shadow-2xl"
         >
-          Moody AI Assistant
+          JARVIS AI Assistant
         </motion.h1>
 
         <motion.p
@@ -102,7 +102,7 @@ export default function Home() {
           {/* ---- Download App ---- */}
           <FeatureCard
             title="Download Apps"
-            desc="Get the desktop and mobile versions of Moody."
+            desc="Get the desktop and mobile versions of JARVIS."
             icon={<Download className="w-12 h-12 text-green-400" />}
             link="/download"
             color="from-green-500 to-teal-500"

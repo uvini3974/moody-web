@@ -9,6 +9,7 @@ import Download from './pages/Download'
 import Gestures from './pages/Gestures'
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
@@ -56,6 +57,12 @@ export default function App() {
           <Route path="/download" element={
             <ProtectedRoute>
               <Download />
+            </ProtectedRoute>
+          }/>
+
+          <Route path="/profile" element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }/>
 

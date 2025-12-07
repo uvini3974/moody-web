@@ -1,5 +1,5 @@
 {
-  "name": "moody-auth-server",
+  "name": "jarvis-auth-server",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
