@@ -1,33 +1,68 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-
 
 import Home from './pages/Home'
 import Emotion from './pages/Emotion'
 import Speech from './pages/Speech'
 import Download from './pages/Download'
 import Gestures from './pages/Gestures'
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import ProtectedRoute from "./components/ProtectedRoute";
 
+export default function App() {
+  const location = useLocation();
 
-export default function App(){
-return (
-<div className="min-h-screen flex flex-col">
-<Navbar />
+  const hideLayout = ["/login", "/signup"].includes(location.pathname);
 
+  return (
+    <div className="min-h-screen flex flex-col">
 
-<main className="flex-1 container mx-auto px-6 py-8">
-<Routes>
-<Route path="/" element={<Home/>} />
-<Route path="/emotion" element={<Emotion/>} />
-<Route path="/speech" element={<Speech/>} />
-<Route path="/download" element={<Download/>} />
-<Route path="/gestures" element={<Gestures/>} />
-</Routes>
-</main>
+      {!hideLayout && <Navbar />}
 
+      <main className="flex-1 container mx-auto px-6 py-8">
+        <Routes>
 
-<Footer />
-</div>
-)
+          {/* Public routes */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
+          {/* Protected routes */}
+          <Route path="/" element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }/>
+
+          <Route path="/emotion" element={
+            <ProtectedRoute>
+              <Emotion />
+            </ProtectedRoute>
+          }/>
+
+          <Route path="/speech" element={
+            <ProtectedRoute>
+              <Speech />
+            </ProtectedRoute>
+          }/>
+
+          <Route path="/gestures" element={
+            <ProtectedRoute>
+              <Gestures />
+            </ProtectedRoute>
+          }/>
+
+          <Route path="/download" element={
+            <ProtectedRoute>
+              <Download />
+            </ProtectedRoute>
+          }/>
+
+        </Routes>
+      </main>
+
+      {!hideLayout && <Footer />}
+    </div>
+  );
 }

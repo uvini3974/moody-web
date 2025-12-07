@@ -20,18 +20,21 @@ export default function Navbar() {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* LOGO */}
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-3 cursor-pointer"
-        >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-black text-xl font-extrabold shadow-lg">
-            ⚡
-          </div>
-          <h1 className="text-2xl font-bold tracking-wide bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
-            MOODY
-          </h1>
-        </motion.div>
+       <Link to="/">
+  <motion.div 
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="flex items-center gap-3 cursor-pointer"
+  >
+    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center text-black text-xl font-extrabold shadow-lg">
+      ⚡
+    </div>
+    <h1 className="text-2xl font-bold tracking-wide bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
+      MOODY
+    </h1>
+  </motion.div>
+</Link>
+
 
         {/* NAV LINKS (Desktop) */}
         <nav className="hidden md:flex items-center gap-8 text-gray-300">
